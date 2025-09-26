@@ -82,7 +82,7 @@ def receive_screenshot(message):
 # =======================
 # Admin Commands
 # =======================
-@bot.message_handler(commands=lambda m: m.text.startswith('/approve_'))
+@bot.message_handler(func=lambda m: m.text.startswith('/approve_'))
 def approve(message):
     try:
         user_id = int(message.text.split('_')[1])
@@ -102,7 +102,7 @@ def approve(message):
     except Exception as e:
         bot.send_message(message.chat.id, f"Error: {e}")
 
-@bot.message_handler(commands=lambda m: m.text.startswith('/reject_'))
+@bot.message_handler(func=lambda m: m.text.startswith('/reject_'))
 def reject(message):
     try:
         user_id = int(message.text.split('_')[1])
